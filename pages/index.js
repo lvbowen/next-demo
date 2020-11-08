@@ -6,14 +6,14 @@ import { useState } from 'react'
 export default function Home(props) {
   console.log('index props', props)
 
-  const [list, setList] = useState(props.region);
+  const [list, setList] = useState(props.region || []);
 
   const alertFun = () => {
     alert(123)
   }
 
   const request = async () => {
-    const res = await fetch('/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
+    const res = await fetch('http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
       headers: {
         token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIyNTBmNWQ2MTlmZjExMWVhODdmNjAwMTYzZTAzOWRlOCIsInJhbmRvbSI6NTM5LCJncm91cElkIjoiZWFmZmJjNTE4M2Q1YTJlNGZhZGQwYjE3NTZmOWU3ODMiLCJhcHBJZCI6InNtYXJ0Uml2ZXJUZXN0IiwidXNlcklkIjoiMjUwZjVkNjE5ZmYxMTFlYTg3ZjYwMDE2M2UwMzlkZTgiLCJ1dUlkIjoiNzRmYjQxYTRkOTY5NDc2Yzk0NTgzY2IwOTMzNjMxMjMiLCJpYXQiOjE2MDQ4MjA5NDMsInVzZXJuYW1lIjoic3VwZXJtYW4ifQ.DOuLoF_6AyfiWdHB2bIgnfLhxiUg8MIrCnidJ1dI_70'
       }
@@ -30,10 +30,7 @@ export default function Home(props) {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+
       <button onClick={request}>发送请求</button>
       <button onClick={request2}>请求next接口</button>
       <ul>
