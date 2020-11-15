@@ -4,7 +4,7 @@ import Layout from '../components/common/layout'
 
 function MyApp({ Component, pageProps }) {
   // pageProps.url = 'www';  // 也可以加进去
-  console.log('pageProps', pageProps)
+  // console.log('pageProps', pageProps)
   return (
     <Layout>
       <Component {...pageProps} />

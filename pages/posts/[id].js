@@ -1,6 +1,9 @@
+import { useRouter } from 'next/router';
 
+const id = (props) => {
+     const router = useRouter();
+     console.log('post detail router', router)
 
-const id = () => {
     return (
         <div>idiiddidi </div>
     )

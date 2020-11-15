@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
 export default function Home(props) {
-  console.log('index props', props)
+  // console.log('index props', props)
 
   const [list, setList] = useState(props.region || []);
 
@@ -35,7 +35,13 @@ export default function Home(props) {
       <button onClick={request}>发送请求</button>
       <button onClick={request2}>请求next接口</button>
       <div style={{ color: 'blue' }}>
-        <Link href="/about">进入 about 页面</Link>
+        <Link href="/about?abc=1">进入 about 页面</Link>
+        {/* <Link href={
+          {
+            pathname: '/about',
+            query: { abc: '1' }, 
+          }
+        }>进入 about 页面</Link> */}
       </div>
       <ul>
         {
@@ -99,7 +105,7 @@ export default function Home(props) {
   )
 }
 
- // 此函数在构建时被调用
+ // 此函数在构建时被调用(静态化)
 export async function getStaticProps(context) {
   // http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1
   const res = await Fetch('http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
@@ -108,7 +114,7 @@ export async function getStaticProps(context) {
     }
   })
   const response = await res.json();
-  console.log('response', response)
+  console.log('111111')
   if (response.code == 0) {
     return {
       props: {

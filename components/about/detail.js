@@ -1,6 +1,6 @@
 
 const Detail = (props) => {
-    console.log('detail props:', props); // 返回 {}
+    // console.log('detail props:', props); // 返回 {}
     return (
         <div>
             关于页面详情关于页面详情关于页面详情

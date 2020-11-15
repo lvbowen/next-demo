@@ -2,7 +2,11 @@
 - 全局样式在 _app.js 中加
 - 模块样式命名必须格式： ×××.module.css 
 - getStaticProps 等是在服务端执行，会最先执行，然后执行 _app.js, 再执行 pages 组件。_app.js 参数 pageProps 是当前 page 组件 props, 可以在 _app.js 增加属性，然后每个页面组件都可以拿到公共的属性。
-- getStaticProps 等只对页面根组件生效，页面子组件不生效；
+- getStaticProps 等只对页面根组件生效，页面子组件不生效；_app.js 的 pageProps 同理也是。
+- 动态路由 [id].js 的 id 和路由上的查询字符串都是在 useRouter() 对象的 query 属性中拿，但是动态路由变量名称不能和查询字符串属性相同否则会合并，只有动态路由变量。
+- 构建之后的页面在 .next/server/pages 目录下
+- 如果使用的是静态生成的预渲染方式，则在构建时（build time）就会执行 getStaticProps，在 .next/server/pages 就会生成对应的 html，如果是服务端渲染（getServerSideProps），则是在每次浏览器请求时生成html而不是构建时.
+- getStaticProps、 getServerSideProps 如果使用的本地 api 接口（eg.http://localhost:3000/api/posts/list）, 构建的时候要保证服务启动在即 npm run dev 的开发服务不能断开，否则没法请求而报错。
 
 ## 分享提纲
 - next 使用
