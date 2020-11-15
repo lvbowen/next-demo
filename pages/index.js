@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Fetch from 'node-fetch'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
@@ -13,9 +14,9 @@ export default function Home(props) {
   }
 
   const request = async () => {
-    const res = await fetch('http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
+    const res = await fetch('/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
       headers: {
-        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIyNTBmNWQ2MTlmZjExMWVhODdmNjAwMTYzZTAzOWRlOCIsInJhbmRvbSI6NTM5LCJncm91cElkIjoiZWFmZmJjNTE4M2Q1YTJlNGZhZGQwYjE3NTZmOWU3ODMiLCJhcHBJZCI6InNtYXJ0Uml2ZXJUZXN0IiwidXNlcklkIjoiMjUwZjVkNjE5ZmYxMTFlYTg3ZjYwMDE2M2UwMzlkZTgiLCJ1dUlkIjoiNzRmYjQxYTRkOTY5NDc2Yzk0NTgzY2IwOTMzNjMxMjMiLCJpYXQiOjE2MDQ4MjA5NDMsInVzZXJuYW1lIjoic3VwZXJtYW4ifQ.DOuLoF_6AyfiWdHB2bIgnfLhxiUg8MIrCnidJ1dI_70'
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIyNTBmNWQ2MTlmZjExMWVhODdmNjAwMTYzZTAzOWRlOCIsInJhbmRvbSI6MzYzLCJncm91cElkIjoiZWFmZmJjNTE4M2Q1YTJlNGZhZGQwYjE3NTZmOWU3ODMiLCJhcHBJZCI6InNtYXJ0Uml2ZXJUZXN0IiwidXNlcklkIjoiMjUwZjVkNjE5ZmYxMTFlYTg3ZjYwMDE2M2UwMzlkZTgiLCJ1dUlkIjoiMzQzY2VmNDEwYjkzNDgzYmE3MDdlNjAzY2Q0NTRjOGMiLCJpYXQiOjE2MDU0MjgzMjMsInVzZXJuYW1lIjoic3VwZXJtYW4ifQ.LaCZ3MHgIWPGtIERKyRoi96PxNr3UjDHrNWRPebMw9c'
       }
     }).then(res => { return res.json()})
     console.log('客户端res:', res)
@@ -33,6 +34,9 @@ export default function Home(props) {
 
       <button onClick={request}>发送请求</button>
       <button onClick={request2}>请求next接口</button>
+      <div style={{ color: 'blue' }}>
+        <Link href="/about">进入 about 页面</Link>
+      </div>
       <ul>
         {
           (list || []).map((item, index) => (
@@ -95,20 +99,27 @@ export default function Home(props) {
   )
 }
 
+ // 此函数在构建时被调用
 export async function getStaticProps(context) {
   // http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1
-  // http://153.35.118.69:7005/yunli/smartriver/v1/api/executiveWaterQualityOverview/regionOverview?regionId=1&year=2020
   const res = await Fetch('http://153.35.118.69:7005/yunli/smartriver/v1/api/region/listByPcode?pCode=1', {
     headers: {
-      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIyNTBmNWQ2MTlmZjExMWVhODdmNjAwMTYzZTAzOWRlOCIsInJhbmRvbSI6NTM5LCJncm91cElkIjoiZWFmZmJjNTE4M2Q1YTJlNGZhZGQwYjE3NTZmOWU3ODMiLCJhcHBJZCI6InNtYXJ0Uml2ZXJUZXN0IiwidXNlcklkIjoiMjUwZjVkNjE5ZmYxMTFlYTg3ZjYwMDE2M2UwMzlkZTgiLCJ1dUlkIjoiNzRmYjQxYTRkOTY5NDc2Yzk0NTgzY2IwOTMzNjMxMjMiLCJpYXQiOjE2MDQ4MjA5NDMsInVzZXJuYW1lIjoic3VwZXJtYW4ifQ.DOuLoF_6AyfiWdHB2bIgnfLhxiUg8MIrCnidJ1dI_70'
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIyNTBmNWQ2MTlmZjExMWVhODdmNjAwMTYzZTAzOWRlOCIsInJhbmRvbSI6MzYzLCJncm91cElkIjoiZWFmZmJjNTE4M2Q1YTJlNGZhZGQwYjE3NTZmOWU3ODMiLCJhcHBJZCI6InNtYXJ0Uml2ZXJUZXN0IiwidXNlcklkIjoiMjUwZjVkNjE5ZmYxMTFlYTg3ZjYwMDE2M2UwMzlkZTgiLCJ1dUlkIjoiMzQzY2VmNDEwYjkzNDgzYmE3MDdlNjAzY2Q0NTRjOGMiLCJpYXQiOjE2MDU0MjgzMjMsInVzZXJuYW1lIjoic3VwZXJtYW4ifQ.LaCZ3MHgIWPGtIERKyRoi96PxNr3UjDHrNWRPebMw9c'
     }
   })
   const response = await res.json();
   console.log('response', response)
- 
-  return {
-    props: {
-      region: response.result || [],
-    },
+  if (response.code == 0) {
+    return {
+      props: {
+        region: response.result || [],
+      },
+    }
+  } else {
+    return {
+      props: {}
+    }
   }
+ 
+
 }

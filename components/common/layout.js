@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
             </Head>
             <header>公共头部</header>
             {children}
-            <footer>公共底部</footer>
+            <footer className="layout-footer">公共底部</footer>
         </div>
     )
 }

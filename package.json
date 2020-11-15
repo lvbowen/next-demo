@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev2": "cross-env NODE_ENV=development PORT=3000 node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 80",
+    "dev2": "cross-env NODE_ENV=development PORT=3000 node server.js",
+    "start2": "cross-env NODE_ENV=production PORT=3000 node server.js"
   },
   "dependencies": {
     "cross-env": "^7.0.2",

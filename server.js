@@ -4,7 +4,7 @@ const createProxyMiddleware = require('http-proxy-middleware').createProxyMiddle
 
 const devProxy = {
     '/yunli': {
-        target: 'http://153.35.118.69:7005', // 端口自己配置合适的
+        target: 'http://153.35.118.69:7005',
         pathRewrite: {
             '^/yunli': '/yunli'
         },
