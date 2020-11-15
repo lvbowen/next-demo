@@ -22,11 +22,11 @@
     - 部署
 
 ## 具体
-- 接口代理转发： npm run dev2 (之前 npm run dev 起的端口要停掉)
+- 接口代理转发： npm run dev2 (之前 npm run dev 起的端口要停掉，用一个就好)
 
 - 部署：两种方式
     - next 部署：npm run build 再 npm run start
     - 结合 express 部署：npm run build 再 npm run start2
 
-- mobx 应用安装： npx create-next-app -e with-mobx
-[https://github.com/vercel/next.js/tree/master/examples](https://github.com/vercel/next.js/tree/master/examples)
+- mobx 应用安装： npx create-next-app -e with-mobx  
+（模板仓库[https://github.com/vercel/next.js/tree/master/examples](https://github.com/vercel/next.js/tree/master/examples)）
