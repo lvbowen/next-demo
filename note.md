@@ -30,3 +30,6 @@
 
 - mobx 应用安装： npx create-next-app -e with-mobx  
 （模板仓库[https://github.com/vercel/next.js/tree/master/examples](https://github.com/vercel/next.js/tree/master/examples)）
+
+## 官方文档地址
+- [https://www.nextjs.cn/docs/getting-started](https://www.nextjs.cn/docs/getting-started)
