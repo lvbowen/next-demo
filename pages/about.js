@@ -10,9 +10,9 @@ const about = (props) => {
     // router.push('/posts/list');
     router.push({
       pathname: '/posts/list',
-      query: {
-        a: '1'
-      }
+      // query: {
+      //   a: '1'
+      // }
     })
   }
 

@@ -7,6 +7,7 @@
 - 构建之后的页面在 .next/server/pages 目录下
 - 如果使用的是静态生成的预渲染方式，则在构建时（build time）就会执行 getStaticProps，在 .next/server/pages 就会生成对应的 html，如果是服务端渲染（getServerSideProps），则是在每次浏览器请求时生成html而不是构建时.
 - getStaticProps、 getServerSideProps 如果使用的本地 api 接口（eg.http://localhost:3000/api/posts/list）, 构建的时候要保证服务启动在即 npm run dev 的开发服务不能断开，否则没法请求而报错。
+- 给动态路由使用静态化渲染，构建后 server/pages 下会生成所有的 html 文件，如果使用 ssr 则不会生成 html.
 
 ## 分享提纲
 - next 使用
